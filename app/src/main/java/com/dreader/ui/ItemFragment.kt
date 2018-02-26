@@ -71,6 +71,7 @@ class ItemFragment: Fragment() {
                         .load(item.gifUrl)
                         .override(item.gifWidth, item.gifHeight)
                         .into(imageView)
+
             }
         }
     }

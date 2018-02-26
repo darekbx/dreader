@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.support.v4.app.FragmentActivity
 import android.support.v4.view.ViewPager
 import android.view.View
+import android.widget.Toast
 import com.dreader.R
 import com.dreader.extensions.hide
 import com.dreader.model.Item
@@ -24,7 +25,10 @@ class MainActivity : FragmentActivity() {
         viewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
         with(viewModel) {
             itemsList.observe(this@MainActivity, Observer {
-                it?.let {initializeAdapter(it) }
+                it?.let { initializeAdapter(it) }
+            })
+            errorObserver.observe(this@MainActivity, Observer { e ->
+                Toast.makeText(this@MainActivity, e, Toast.LENGTH_LONG).show()
             })
         }
         viewModel.fetch()
