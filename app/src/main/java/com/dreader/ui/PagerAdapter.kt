@@ -7,6 +7,11 @@ import com.dreader.model.Item
 
 class PagerAdapter(fm: FragmentManager?, val items: List<Item>) : FragmentStatePagerAdapter(fm) {
 
-    override fun getItem(position: Int) = ItemFragment().apply { item = items[position] }
+    override fun getItem(position: Int) =
+            ItemFragment().apply {
+                item = items[position]
+                itemPosition = position
+            }
+
     override fun getCount() = items.size
 }
