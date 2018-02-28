@@ -18,7 +18,6 @@ import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
 import com.dreader.GlideApp
 import com.dreader.R
-import com.dreader.api.Endpoints.Companion.LIMIT
 import com.dreader.extensions.hide
 import com.dreader.extensions.show
 import com.dreader.model.Item
@@ -30,7 +29,6 @@ class ItemFragment: Fragment() {
     }
 
     var item: Item? = null
-    var itemPosition: Int = 0
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return LayoutInflater.from(context).inflate(R.layout.fragment_item, container, false)
@@ -55,7 +53,6 @@ class ItemFragment: Fragment() {
 
         playButton?.setOnClickListener { playGif() }
         imageView?.setOnClickListener { openInBrowser() }
-        pageInfo?.text = "${itemPosition + 1}/$LIMIT"
     }
 
     private fun openInBrowser() {
@@ -114,5 +111,4 @@ class ItemFragment: Fragment() {
     private val progressBar by lazy { view?.let { it.findViewById(R.id.progress) as ProgressBar } }
     private val playButton by lazy { view?.let { it.findViewById(R.id.play_button) as ImageView } }
     private val imageView by lazy { view?.let { it.findViewById(R.id.image) as ImageView } }
-    private val pageInfo by lazy { view?.let { it.findViewById(R.id.page_info) as TextView } }
 }

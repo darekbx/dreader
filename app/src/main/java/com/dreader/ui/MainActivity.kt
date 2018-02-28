@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.support.v4.app.FragmentActivity
 import android.support.v4.view.ViewPager
 import android.view.View
+import android.widget.TextView
 import android.widget.Toast
 import com.dreader.R
 import com.dreader.extensions.hide
@@ -38,10 +39,19 @@ class MainActivity : FragmentActivity() {
         adapter = PagerAdapter(supportFragmentManager, it)
         pager.adapter = adapter
 
+        pager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
+            override fun onPageScrollStateChanged(state: Int) { }
+
+            override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) { }
+
+            override fun onPageSelected(position: Int) {
+                pageInfo.text = "${position + 1}/${adapter?.count}"
+            }
+        })
+
         findViewById<View>(R.id.progress).hide()
     }
 
-    private val pager by lazy {
-        findViewById(R.id.pager) as ViewPager
-    }
+    private val pager by lazy {  findViewById(R.id.pager) as ViewPager  }
+    private val pageInfo by lazy { findViewById(R.id.page_info) as TextView }
 }

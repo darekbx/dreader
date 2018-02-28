@@ -9,7 +9,7 @@ import retrofit2.http.Query
 interface Endpoints {
 
     companion object {
-        const val LIMIT = 50
+        const val LIMIT = 60
     }
 
     @Headers("User-Agent: androidFuturemind")
