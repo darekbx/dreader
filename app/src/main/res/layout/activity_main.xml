@@ -11,7 +11,6 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:gravity="right"
-        android:text="1/50"
         android:textSize="14dp"
         android:padding="8dp"
         android:typeface="monospace"

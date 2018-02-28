@@ -49,6 +49,7 @@ class MainActivity : FragmentActivity() {
             }
         })
 
+        pageInfo.text = "1/${adapter?.count}"
         findViewById<View>(R.id.progress).hide()
     }
 
